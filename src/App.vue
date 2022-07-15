@@ -1,86 +1,73 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterLink, RouterView } from "vue-router";
+import IconDocumentation from "./components/icons/IconDocumentation.vue";
+import IconEcosystem from "./components/icons/IconEcosystem.vue";
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/todos"> Todo</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <div class="flex flex-col w-full min-h-screen mt-0">
+    <header
+      class="flex flex-row w-full px-3 py-2 items-center border-2 border-b-indigo-700"
+    >
+      <div class="flex flex-row items-center gap-3 w-12 h-12 whitespace-nowrap">
+        <img
+          alt="Vue logo"
+          class="logo"
+          src="@/assets/logo.svg"
+          width="125"
+          height="125"
+        />
+        <span class="font-bold text-lg text-orange-500"> Best todo app </span>
+      </div>
+      <div class="wrapper mx-auto">
+        <nav class="flex flex-row gap-3">
+          <RouterLink
+            class="text-2xl text-indigo-600 hover:text-white px-2 py-1 hover:bg-indigo-500 rounded-md"
+            to="/"
+            >Home</RouterLink
+          >
+          <RouterLink
+            class="text-2xl text-indigo-600 hover:text-white px-2 py-1 hover:bg-indigo-500 rounded-md"
+            to="/about"
+            >About</RouterLink
+          >
+          <RouterLink
+            class="text-2xl text-indigo-600 hover:text-white px-2 py-1 hover:bg-indigo-500 rounded-md"
+            to="/todos"
+          >
+            Todo</RouterLink
+          >
+          <RouterLink
+            class="text-2xl text-indigo-600 hover:text-white px-2 py-1 hover:bg-indigo-500 rounded-md"
+            to="/workspace"
+          >
+            Workspace
+          </RouterLink>
+        </nav>
+      </div>
+      <div
+        class="flex flex-row items-center gap-3 px-3 py-1 border-2 border-black rounded-md"
+      >
+        <div class="w-10 pr-3" v-tooltip="'Thinh\'s Avatar'">
+          <img src="chrome://branding/content/about-logo.png" />
+        </div>
+        <span class="font-bold text-sm text-indigo-500"> Thịnh Nguyễn </span>
+        <IconDocumentation 
+          v-tooltip="'More info about this account'"
+        ></IconDocumentation>
+        <IconEcosystem v-tooltip="'additional-actions'"></IconEcosystem>
+      </div>
+    </header>
+    <RouterView />
+  </div>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+<style>
+#app {
+  min-width: 100%;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+#app > div {
+  min-width: 100%;
+  margin: auto auto; 
 }
 </style>
